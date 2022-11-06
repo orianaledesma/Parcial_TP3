@@ -1,4 +1,4 @@
-package edu.ar.parcial_tp3.Fragments
+package edu.ar.parcial_tp3.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

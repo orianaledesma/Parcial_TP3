@@ -12,7 +12,7 @@
         tools:layout="@layout/activity_main" />
     <fragment
         android:id="@+id/cardsListFragment"
-        android:name="edu.ar.parcial_tp3.Fragments.CardsListFragment"
+        android:name="edu.ar.parcial_tp3.fragments.CardsListFragment"
         android:label="fragment_cards_list"
         tools:layout="@layout/fragment_cards_list" />
 </navigation>
