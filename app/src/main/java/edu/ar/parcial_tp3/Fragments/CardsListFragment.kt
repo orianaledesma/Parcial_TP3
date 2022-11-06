@@ -6,28 +6,27 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import edu.ar.parcial_tp3.R
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import edu.ar.parcial_tp3.Adapters.ListAdapter
+import edu.ar.parcial_tp3.Clases.Character
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [CardsListFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class CardsListFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+    lateinit var v: View
+
+    lateinit var characterList: RecyclerView
+
+    var characters: MutableList<Character> = ArrayList<Character>()
+
+    private lateinit var linearLayoutManager: LinearLayoutManager
+
+    private lateinit var characterListAdapter: ListAdapter
+
+    companion object {
+        fun newInstance() = CardsListFragment()
     }
 
     override fun onCreateView(
@@ -35,26 +34,29 @@ class CardsListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cards_list, container, false)
+        return inflater.inflate(R.layout.item_card, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CardsListFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            CardsListFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onStart() {
+        super.onStart()
+
+        for (i in 1..10) {
+            characters.add(Character("Rick Sanchez", "Alive"))
+            characters.add(Character("Morty Smith", "Death"))
+            characters.add(Character("Rick Sanchez", "Alive"))
+            characters.add(Character("Morty Smith", "Death"))
+
+        }
+
+        characterList.setHasFixedSize(true)
+        linearLayoutManager = LinearLayoutManager(context)
+
+        characterList.layoutManager = linearLayoutManager
+
+        characterListAdapter = ListAdapter(characters)
+
+        characterList.adapter = characterListAdapter
+
     }
 }
+
