@@ -2,8 +2,8 @@ package edu.ar.parcial_tp3.Clases
 import android.os.Parcel
 import android.os.Parcelable
 
-class Personaje (nombre: String?, status: String?): Parcelable {
-        var nombre: String = ""
+class Character (name: String?, status: String?): Parcelable {
+        var name: String = ""
         var status: String = ""
 
         constructor(parcel: Parcel) : this(
@@ -12,12 +12,12 @@ class Personaje (nombre: String?, status: String?): Parcelable {
         )
 
         init {
-            this.nombre = nombre!!
+            this.name = name!!
             this.status = status!!
         }
 
         override fun writeToParcel(parcel: Parcel, flags: Int) {
-            parcel.writeString(nombre)
+            parcel.writeString(name)
             parcel.writeString(status)
         }
 
@@ -25,12 +25,12 @@ class Personaje (nombre: String?, status: String?): Parcelable {
             return 0
         }
 
-        companion object CREATOR : Parcelable.Creator<Personaje> {
-            override fun createFromParcel(parcel: Parcel): Personaje {
-                return Personaje(parcel)
+        companion object CREATOR : Parcelable.Creator<Character> {
+            override fun createFromParcel(parcel: Parcel): Character {
+                return Character(parcel)
             }
 
-            override fun newArray(size: Int): Array<Personaje?> {
+            override fun newArray(size: Int): Array<Character?> {
                 return arrayOfNulls(size)
             }
         }
