@@ -32,11 +32,6 @@
             app:destination="@id/characterDetailFragment" />
     </fragment>
     <fragment
-        android:id="@+id/settingsFragment"
-        android:name="com.ort.edu.parcial_tp3.fragments.SettingsFragment"
-        android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" />
-    <fragment
         android:id="@+id/characterDetailFragment"
         android:name="com.ort.edu.parcial_tp3.fragments.CharacterDetailFragment"
         android:label="fragment_product_detail"
@@ -45,4 +40,8 @@
             android:name="character"
             app:argType="com.ort.edu.parcial_tp3.model.Character" />
     </fragment>
+    <fragment
+        android:id="@+id/settingsFragment2"
+        android:name="com.ort.edu.parcial_tp3.fragments.SettingsFragment2"
+        android:label="SettingsFragment2" />
 </navigation>

@@ -27,7 +27,7 @@ class HomeFragment : Fragment(), OnCharacterClickedListener  {
     private lateinit var characterList: List<Character>
     private lateinit var title: TextView
     private lateinit var listaTemporal: MutableList<Character>
-    private lateinit var recyclerRotacionSemanal : RecyclerView
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -57,7 +57,7 @@ class HomeFragment : Fragment(), OnCharacterClickedListener  {
 
         txtBuscar.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(p0: String?): Boolean {
-                TODO("Martin Rivas")
+                TODO("Not yet implemented")
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
@@ -70,11 +70,11 @@ class HomeFragment : Fragment(), OnCharacterClickedListener  {
                        }
                     }
 
-                    recyclerRotacionSemanal.adapter!!.notifyDataSetChanged()
+
                 } else {
                     listaTemporal.clear()
                     listaTemporal.addAll(characterList)
-                    recyclerRotacionSemanal.adapter!!.notifyDataSetChanged()
+
                 }
 
 
